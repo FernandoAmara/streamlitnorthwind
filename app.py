@@ -20,7 +20,7 @@ def list_table_columns(table_name):
 
 
 def run_query(query):
-    db_connection = sqlite3.connect('northwind.db')
+    db_connection = sqlite3.connect('file:northwind.db?mode=ro', uri=True)
     query_result = pd.read_sql_query(query, db_connection)
     db_connection.close()
     return query_result
